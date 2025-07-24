@@ -95,10 +95,25 @@ export class CoursesList implements OnInit {
         'https://media.istockphoto.com/id/959212324/vector/finding-new-ideas-problem-solving-vector-illustration-banner-teamwork-search-for-solutions.jpg?s=612x612&w=0&k=20&c=YBSs-0KYUazllZPV_NQcot_5F25OU2TgQlK0tQ_D7Uo=',
     },
   ];
-  onCourseClicked(title: string): void {
-    alert(`You clicked: ${title}`);
-  }
+  wishlist: string[] = [];
   ngOnInit(): void {
-    console.log('Courses list initialized!')
+    console.log('Courses list initialized!');
+  }
+
+  onCourseBooked(title: string): void {
+    console.log(`Course ${title} is booked from the parent`);
+  }
+
+  onWishlist(title: string): void {
+    const existIndex = this.wishlist.findIndex((wish) => wish === title);
+    if (existIndex !== -1) {
+      this.wishlist.splice(existIndex, 1);
+    } else {
+      this.wishlist.push(title);
+    }
+  }
+
+  isInWishList(title: string): boolean {
+    return this.wishlist.includes(title);
   }
 }

@@ -26,11 +26,21 @@
 
 
         </div>
-        <button class="p-2 px-5 rounded-lg font-semibold" [ngClass]="{
+        <div class="flex flex-row gap-2 justify-between">
+            <button class="p-2 px-5 rounded-lg font-semibold w-full" [ngClass]="{
     'bg-gray-600 text-gray-300': soldOut,
-    'bg-violet-950 text-neutral-200 cursor-pointer': !soldOut
-  }" [disabled]="soldOut" (click)="handleClick()">
-            {{ buttonTitle }}
-        </button>
+    'bg-green-700 text-neutral-50 cursor-pointer': isWishlisted,
+    'bg-violet-950 text-neutral-200 cursor-pointer': !soldOut && !isWishlisted
+  }" [disabled]="soldOut" (click)="onWishlist()">
+                {{ wishlistButton }}
+            </button>
+
+            <button class="p-2 px-5 rounded-lg font-semibold w-full" [ngClass]="{
+            'bg-gray-600 text-gray-300': soldOut,
+            'bg-violet-950 text-neutral-200 cursor-pointer': !soldOut
+          }" [disabled]="soldOut" (click)="onCourseBooked()">
+                {{ bookCourseButton }}
+            </button>
+        </div>
     </div>
 </div>

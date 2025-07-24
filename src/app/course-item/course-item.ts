@@ -1,4 +1,4 @@
-import { CommonModule, CurrencyPipe, DatePipe, NgStyle } from '@angular/common';
+import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
@@ -14,13 +14,20 @@ export class CourseItem {
   @Input() startDate!: string;
   @Input() category!: string;
   @Input() duration!: string;
-  @Input() buttonTitle!: string;
+  @Input() bookCourseButton!: string;
   @Input() soldOut!: boolean;
   @Input() image!: string;
   @Input() onSale!: boolean;
-  @Output() courseClicked = new EventEmitter<string>();
+  @Input() wishlistButton!: string
+  @Input() isWishlisted!: boolean
 
-  handleClick(): void {
-    this.courseClicked.emit(this.title);
+  @Output() courseBooked = new EventEmitter<any>()
+  @Output() wishlist = new EventEmitter<any>()
+
+  onCourseBooked(): void {
+    this.courseBooked.emit(this.title)
+  }
+  onWishlist(): void {
+    this.wishlist.emit(this.title)
   }
 }

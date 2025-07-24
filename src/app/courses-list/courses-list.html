@@ -1,11 +1,25 @@
-<h1 class="text-2xl font-semibold p-6 text-white bg-black">{{title}}</h1>
+<h1 class="text-2xl font-semibold p-6 text-neutral-200 bg-black">{{title}}</h1>
+<div class="flex flex-row bg-neutral-200 px-6 py-3 gap-6">
+   
+    <p class="font-bold">❤️ My wishlist:</p>
+    @if (wishlist.length > 0) {
+        @for (list of wishlist; track list) {
+            <p class="font-semibold">{{list}}</p>
+        }
+    } @else {
+        <p class="text-neutral-600">Your wishlist is empty</p>
+    }
+    
+</div>
 <div class="flex flex-wrap justify-center gap-6 px-1 py-8 w-full">
+   
     @for (course of courses; track course.id) {
 
     <app-course-item [title]="course.title" [description]="course.description" [price]="course.price"
-        [startDate]="course.startDate" [buttonTitle]="'View details'" [category]="course.category" [duration]="course.duration"
+        [startDate]="course.startDate" [bookCourseButton]="'Book course'" [wishlistButton]="isInWishList(course.title) ? 'Added to wishlist' : 'Add to wishlist'" [category]="course.category" [duration]="course.duration"
         [image]="course.image" [soldOut]="course.soldOut" [onSale]="course.onSale"
-        (courseClicked)="onCourseClicked($event)">
+        (courseBooked)="onCourseBooked($event)" (wishlist)="onWishlist($event)" [isWishlisted]="isInWishList(course.title)"
+        >
     </app-course-item>
 
     }
