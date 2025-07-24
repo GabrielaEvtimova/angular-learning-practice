@@ -1,0 +1,12 @@
+<h1 class="text-2xl font-semibold p-6 text-white bg-black">{{title}}</h1>
+<div class="flex flex-wrap justify-center gap-6 px-1 py-8 w-full">
+    @for (course of courses; track course.id) {
+
+    <app-course-item [title]="course.title" [description]="course.description" [price]="course.price"
+        [startDate]="course.startDate" [buttonTitle]="'View details'" [category]="course.category" [duration]="course.duration"
+        [image]="course.image" [soldOut]="course.soldOut" [onSale]="course.onSale"
+        (courseClicked)="onCourseClicked($event)">
+    </app-course-item>
+
+    }
+</div>

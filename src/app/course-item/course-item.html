@@ -1,0 +1,36 @@
+<div [ngClass]="{
+    'bg-neutral-700 border border-neutral-600 shadow-black hover:scale-105': !soldOut,
+    'bg-neutral-400 border border-neutral-500 opacity-70 grayscale': soldOut
+  }" class="my-4 rounded-xl mx-6 w-[380px] shadow-xl transition duration-300">
+
+    <img [src]="image" [alt]="title" class="rounded-t-xl w-full h-[200px] object-cover opacity-70" />
+    <div class="p-4 flex flex-col gap-3 flex-1">
+        <div class="flex flex-wrap flex-row gap-4 items-center h-[30px]">
+            <h3 class="text-xl font-bold text-neutral-100">{{title}}</h3>
+            <p [hidden]="!onSale" class="bg-violet-950 p-1 px-3 rounded-full text-xs text-neutral-100">SALE</p>
+        </div>
+        <p class="text-neutral-100 h-[70px]">{{description}}</p>
+        <div class="text-neutral-100 font-light">
+            <div class="flex-1 h-[120px]">
+                <p>Category: {{category}}</p>
+                <div class="flex flex-row items-start gap-2">
+                    <p>Price: {{price | currency:'EUR'}}</p>
+                    @if (+price < 300) { <p class="text-green-500 font-semibold text-[9px]">LIMITED OFFER</p>
+                        }
+                </div>
+
+                <p>Start date: {{startDate | date:'longDate'}}</p>
+                <p>Duration: {{duration}}</p>
+                <p [hidden]="!soldOut" class="text-end text-gray-600 font-bold text-xs px-1">SOLD OUT</p>
+            </div>
+
+
+        </div>
+        <button class="p-2 px-5 rounded-lg font-semibold" [ngClass]="{
+    'bg-gray-600 text-gray-300': soldOut,
+    'bg-violet-950 text-neutral-200 cursor-pointer': !soldOut
+  }" [disabled]="soldOut" (click)="handleClick()">
+            {{ buttonTitle }}
+        </button>
+    </div>
+</div>
