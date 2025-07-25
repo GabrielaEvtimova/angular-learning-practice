@@ -17,7 +17,7 @@
 
     <app-course-item [title]="course.title" [description]="course.description" [price]="course.price"
         [startDate]="course.startDate" [bookCourseButton]="'Book course'" [wishlistButton]="isInWishList(course.title) ? 'Added to wishlist' : 'Add to wishlist'" [category]="course.category" [duration]="course.duration"
-        [image]="course.image" [soldOut]="course.soldOut" [onSale]="course.onSale"
+        [image]="course.image" [soldOut]="course.soldOut" [onSale]="course?.onSale"
         (courseBooked)="onCourseBooked($event)" (wishlist)="onWishlist($event)" [isWishlisted]="isInWishList(course.title)"
         >
     </app-course-item>

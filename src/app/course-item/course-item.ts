@@ -10,14 +10,14 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class CourseItem {
   @Input() title!: string;
   @Input() description!: string;
-  @Input() price!: string;
-  @Input() startDate!: string;
-  @Input() category!: string;
-  @Input() duration!: string;
+  @Input() price!: number;
+  @Input() startDate?: string;
+  @Input() category?: string;
+  @Input() duration?: string;
   @Input() bookCourseButton!: string;
-  @Input() soldOut!: boolean;
-  @Input() image!: string;
-  @Input() onSale!: boolean;
+  @Input() soldOut?: boolean;
+  @Input() image?: string;
+  @Input() onSale?: boolean;
   @Input() wishlistButton!: string
   @Input() isWishlisted!: boolean
 

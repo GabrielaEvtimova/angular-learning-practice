@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseItem } from '../course-item/course-item';
+import { Course } from '../model/course.model';
 
 @Component({
   selector: 'app-courses-list',
@@ -9,13 +10,13 @@ import { CourseItem } from '../course-item/course-item';
 })
 export class CoursesList implements OnInit {
   title: string = 'Available courses';
-  courses = [
+  courses: Course[] = [
     {
       id: 1,
       title: 'Angular Introduction',
       description:
         'Learn the basics of Angular, including components, templates, and services.',
-      price: '199',
+      price: 199,
       startDate: '2025-07-01',
       category: 'Beginner',
       duration: '1 month',
@@ -29,7 +30,7 @@ export class CoursesList implements OnInit {
       title: 'Advanced Angular Concepts',
       description:
         'Deep dive into advanced Angular topics like RxJS, NgRx, and performance optimization.',
-      price: '299',
+      price: 299,
       startDate: '2025-08-01',
       category: 'Advanced',
       duration: '2 months',
@@ -43,7 +44,7 @@ export class CoursesList implements OnInit {
       title: 'Full Angular Bootcamp',
       description:
         'A comprehensive 3-month program covering Angular from basics to advanced topics.',
-      price: '499',
+      price: 499,
       startDate: '2025-08-15',
       category: 'All Levels',
       duration: '3 months',
@@ -57,7 +58,7 @@ export class CoursesList implements OnInit {
       title: 'Angular Testing & Debugging',
       description:
         'Master unit testing, end-to-end testing, and debugging techniques in Angular.',
-      price: '249',
+      price: 249,
       startDate: '2025-09-01',
       category: 'Intermediate',
       duration: '1 month',
@@ -71,7 +72,7 @@ export class CoursesList implements OnInit {
       title: 'Angular + Firebase Integration',
       description:
         'Build dynamic web apps using Angular with Firebase authentication and real-time database.',
-      price: '279',
+      price: 279,
       startDate: '2025-10-01',
       category: 'Intermediate',
       duration: '2 months',
@@ -85,7 +86,7 @@ export class CoursesList implements OnInit {
       title: 'Angular for Web Professionals',
       description:
         'Tailored for working developers looking to enhance their web app skills using Angular.',
-      price: '399',
+      price: 399,
       startDate: '2025-11-15',
       category: 'Advanced',
       duration: '3 months',
